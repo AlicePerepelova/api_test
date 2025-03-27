@@ -1,6 +1,7 @@
 package config;
 
 import com.codeborne.selenide.Configuration;
+import io.restassured.RestAssured;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -14,7 +15,7 @@ public class WebDriverProvider {
   }
 
   public static void setUp() {
-    Configuration.baseUrl = config.getBaseUrl();
+    RestAssured.baseURI = config.getBaseUrl();
     Configuration.browser = config.getBrowser().toString();
     Configuration.browserVersion = config.getBrowserVersion();
     Configuration.pageLoadStrategy = "eager";
