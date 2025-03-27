@@ -16,7 +16,6 @@ public class WebDriverProvider {
   public static void setUp() {
     Configuration.baseUrl = config.getBaseUrl();
     Configuration.browser = config.getBrowser().toString();
-    Configuration.browserSize = config.getBrowserSize();
     Configuration.browserVersion = config.getBrowserVersion();
     Configuration.pageLoadStrategy = "eager";
 

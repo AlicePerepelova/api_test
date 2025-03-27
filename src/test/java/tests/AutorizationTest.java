@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.*;
 import models.request.CreateUserModel;
 import models.response.CreateUserResponseModel;
 import org.junit.jupiter.api.DisplayName;
@@ -13,6 +14,9 @@ import static specs.Specifications.responseSpecificationSpec200;
 
 public class AutorizationTest extends TestBase {
   @Test
+  @Story("Позитивный тест")
+  @Owner("@perepelovaAS")
+  @Severity(SeverityLevel.CRITICAL)
   @DisplayName("Успешное создание токена аутентификации")
   public void checkAuth() {
     CreateUserModel user = new CreateUserModel();
@@ -22,6 +26,7 @@ public class AutorizationTest extends TestBase {
     CreateUserResponseModel response = step("Создание токена аутентификации", () ->
       given(defaultRequestSpec)
         .body(user)
+        .log().all()
         .when()
         .post("/auth")
         .then()
