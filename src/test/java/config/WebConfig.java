@@ -15,6 +15,13 @@ public interface WebConfig extends Config {
   @DefaultValue("chrome")
   String getBrowser();
 
+  @Key("userName")
+  @DefaultValue("admin")
+  String userName();
+
+  @Key("password")
+  String password();
+
   @Key("browserVersion")
   @DefaultValue("${latest.browser.version}")
   String getBrowserVersion();

@@ -10,7 +10,7 @@ import static specs.Specifications.defaultRequestSpec;
 import static specs.Specifications.responseSpecificationSpec200;
 
 public class AuthorizationAPI extends TestBase {
-  private String token; // Поле для хранения токена
+  private String token;
 
   public void generateToken() {
     CreateUserModel user = new CreateUserModel();
