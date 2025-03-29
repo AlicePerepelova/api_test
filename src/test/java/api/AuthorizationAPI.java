@@ -1,9 +1,10 @@
 package tests;
 
-import constants.Credentials;
 import models.request.CreateUserModel;
 import models.response.CreateUserResponseModel;
 
+import static constants.Credentials.PASSWORD;
+import static constants.Credentials.USERNAME;
 import static io.restassured.RestAssured.given;
 import static specs.Specifications.defaultRequestSpec;
 import static specs.Specifications.responseSpecificationSpec200;
@@ -13,8 +14,8 @@ public class AuthorizationAPI extends TestBase {
 
   public void generateToken() {
     CreateUserModel user = new CreateUserModel();
-    user.setUsername(Credentials.USERNAME);
-    user.setPassword(Credentials.PASSWORD);
+    user.setUsername(USERNAME);
+    user.setPassword(PASSWORD);
 
     CreateUserResponseModel response =
       given(defaultRequestSpec)
