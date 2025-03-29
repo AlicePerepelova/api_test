@@ -1,0 +1,19 @@
+{
+  "base": {
+    "project": "restful-booker",
+    "environment": "prod",
+    "comment": "",
+    "reportLink": "",
+    "language": "ru",
+    "allureFolder": "allure-report/",
+    "enableChart": true,
+    "enableSuitesPublishing": true,
+    "messenger": "telegram"
+  },
+  "telegram": {
+    "token": "8181835909:AAETvZaoTzTODwx2pW0lX18Vu3NanW1bK3Y",
+    "chat": "-1002483997470",
+    "replyTo": "",
+    "templatePath": "/templates/telegram.ftl"
+  }
+}
