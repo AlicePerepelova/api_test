@@ -6,6 +6,8 @@ import models.response.CreateUserResponseModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static constants.Credentials.PASSWORD;
+import static constants.Credentials.USERNAME;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,8 +21,8 @@ public class AutorizationTest extends TestBase {
   @DisplayName("Успешное создание токена аутентификации")
   public void checkAuth() {
     CreateUserModel user = new CreateUserModel();
-    user.setUsername("admin");
-    user.setPassword("password123");
+    user.setUsername(USERNAME);
+    user.setPassword(PASSWORD);
 
     CreateUserResponseModel response = step("Создание токена аутентификации", () ->
       given(defaultRequestSpec)
