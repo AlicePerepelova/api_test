@@ -19,7 +19,7 @@ public class GetBookingIdTest extends TestBase {
   void checkGetBooking() {
 
     step("Создание записи о бронировании", () -> {
-      BookingHelper.createBooking();
+    //  BookingHelper.createBooking();
       this.bookingId = BookingHelper.createBooking();
     });
     BookingIdResponseModel response =
@@ -44,7 +44,5 @@ public class GetBookingIdTest extends TestBase {
     step("Проверка дат бронирования. Дата окончания соответствуют значению переданному в запросе на создание " +
       " бронирования", () ->
       assertThat(response.getBookingdates().getCheckout().equals("2023-04-17")));
-
   }
-
 }

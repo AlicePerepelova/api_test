@@ -21,13 +21,13 @@ public class UpdateBookingTest extends TestBase{
     String token = authorizationAPI.getToken();
     UpdateBookingRequestModel request = BookingDataGenerator.generateUpdateBookingRequest();
     UpdateBookingResponseModel response =
-      step("Отправляем запрос на сервер на обновление бронирования по id=1", () ->
+      step("Отправляем запрос на сервер на обновление бронирования по id=2", () ->
         given(defaultRequestSpec)
           .body(request)
           .header("Accept", "application/json")
           .header("Cookie", "token=" + token)
           .when()
-          .put("/booking/" + 3)
+          .put("/booking/" + 2)
           .then()
           .spec(responseSpecificationSpec200)
           .extract().as(UpdateBookingResponseModel.class));

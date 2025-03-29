@@ -24,7 +24,6 @@ public class DeleteBookingTest extends TestBase {
       this.bookingId = BookingHelper.createBooking();
     });
     step("Удаляем запись о бронировании", () -> {
-
       given(defaultRequestSpec)
         .header("Cookie", "token=" + token)
         .when()

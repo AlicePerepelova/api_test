@@ -20,16 +20,16 @@ public class WebDriverProvider {
     Configuration.browserVersion = config.getBrowserVersion();
     Configuration.pageLoadStrategy = "eager";
 
-    if (config.isRemote()) {
-      Configuration.remote = String.valueOf(config.getRemoteUrl());
-
-      DesiredCapabilities capabilities = new DesiredCapabilities();
-      capabilities.setCapability("selenoid:options", Map.of(
-        "enableVNC", true,
-        "enableVideo", true
-
-      ));
-      Configuration.browserCapabilities = capabilities;
-    }
+//    if (config.isRemote()) {
+//      Configuration.remote = String.valueOf(config.getRemoteUrl());
+//
+//      DesiredCapabilities capabilities = new DesiredCapabilities();
+//      capabilities.setCapability("selenoid:options", Map.of(
+//        "enableVNC", true,
+//        "enableVideo", true
+//
+//      ));
+//      Configuration.browserCapabilities = capabilities;
+//    }
   }
 }
