@@ -16,7 +16,6 @@ public interface WebConfig extends Config {
   String getBrowser();
 
   @Key("userName")
-  @DefaultValue("admin")
   String userName();
 
   @Key("password")
