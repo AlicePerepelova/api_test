@@ -70,14 +70,3 @@ tasks.withType(Test) {
         }
     }
 }
-
-task account_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("account")
-    }
-}
-task userData_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("userData")
-    }
-}

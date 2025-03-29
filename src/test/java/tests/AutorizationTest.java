@@ -14,9 +14,8 @@ import static specs.Specifications.responseSpecificationSpec200;
 
 public class AutorizationTest extends TestBase {
   @Test
-  @Story("Позитивный тест")
   @Owner("@perepelovaAS")
-  @Severity(SeverityLevel.CRITICAL)
+  @Severity(SeverityLevel.BLOCKER)
   @DisplayName("Успешное создание токена аутентификации")
   public void checkAuth() {
     CreateUserModel user = new CreateUserModel();

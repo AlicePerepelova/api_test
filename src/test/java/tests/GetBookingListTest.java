@@ -1,5 +1,9 @@
 package tests;
 
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,9 +18,11 @@ import static specs.Specifications.responseSpecificationSpec200;
   @Slf4j
   public class GetBookingListTest extends TestBase {
     @Test
+    @Owner("@perepelovaAS")
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Проверка получения списка бронирований")
     void checkBookingList() {
-      step("Проверка списка бронирований", () ->
+      step("Проверка, что ответ пришел непустой со статусом 200", () ->
         given(defaultRequestSpec)
           .when()
           .get("/booking")

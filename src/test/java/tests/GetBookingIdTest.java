@@ -1,6 +1,10 @@
 package tests;
 
 import helpers.BookingHelper;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import models.response.BookingIdResponseModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,15 +19,16 @@ public class GetBookingIdTest extends TestBase {
   private Integer bookingId;
 
   @Test
-  @DisplayName("Проверка бронирования по id={bookingId}")
+  @Owner("@perepelovaAS")
+  @Severity(SeverityLevel.CRITICAL)
+  @DisplayName("Проверка бронирования по id")
   void checkGetBooking() {
 
     step("Создание записи о бронировании", () -> {
-    //  BookingHelper.createBooking();
       this.bookingId = BookingHelper.createBooking();
     });
     BookingIdResponseModel response =
-      step("Получение данных бронирования по ID= {bookingId}", () ->
+      step(String.format("Получение данных бронирования по ID=%d", bookingId), () ->
         given(defaultRequestSpec)
           .when()
           .get("/booking/" + bookingId)

@@ -1,5 +1,9 @@
 package tests;
 
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import models.request.CreateBookingRequestModel;
 import models.response.CreateBookingResponseModel;
 import org.junit.jupiter.api.DisplayName;
@@ -15,6 +19,8 @@ import static specs.Specifications.responseSpecificationSpec200;
 
 public class CreateBookingTest extends TestBase{
   @Test
+  @Owner("@perepelovaAS")
+  @Severity(SeverityLevel.CRITICAL)
   @DisplayName("Проверка создания новой записи о бронировании")
   void checkCreateBooking() {
     CreateBookingRequestModel request = generateBookingRequest();
