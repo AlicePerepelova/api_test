@@ -1,5 +1,7 @@
 package tests;
 
+import config.WebConfig;
+import lombok.Getter;
 import models.request.CreateUserModel;
 import models.response.CreateUserResponseModel;
 
@@ -9,6 +11,7 @@ import static io.restassured.RestAssured.given;
 import static specs.Specifications.defaultRequestSpec;
 import static specs.Specifications.responseSpecificationSpec200;
 
+@Getter
 public class AuthorizationAPI extends TestBase {
   private String token;
 
@@ -31,7 +34,4 @@ public class AuthorizationAPI extends TestBase {
     System.out.println("Generated token: " + this.token);
   }
 
-  public String getToken() {
-    return token;
-  }
 }

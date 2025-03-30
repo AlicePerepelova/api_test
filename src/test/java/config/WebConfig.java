@@ -16,10 +16,10 @@ public interface WebConfig extends Config {
   String getBrowser();
 
   @Key("userName")
-  String userName();
+  String USERNAME();
 
   @Key("password")
-  String password();
+  String PASSWORD();
 
   @Key("browserVersion")
   @DefaultValue("${latest.browser.version}")

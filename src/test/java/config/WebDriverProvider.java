@@ -21,6 +21,7 @@ public class WebDriverProvider {
     Configuration.pageLoadStrategy = "eager";
 
 
+
     if (config.isRemote()) {
       Configuration.remote = String.valueOf(config.getRemoteUrl());
 
