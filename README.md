@@ -58,7 +58,7 @@ gradle clean test
 </p>
 
 <a id="telegram"></a>
-## <img src="media/logo/Telegram.png" width="25" height="25"/></a> Уведомления в Telegram
+## <img src="media/logo/Telegram.svg" width="25" height="25"/></a> Уведомления в Telegram
 
 <p >
 
