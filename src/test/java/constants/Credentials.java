@@ -1,5 +1,8 @@
 package constants;
 
-public class Credentials {
+import lombok.Data;
 
+@Data
+public class Credentials {
+//String userName, password;
 }

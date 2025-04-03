@@ -6,8 +6,6 @@ import models.response.CreateUserResponseModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static constants.Credentials.PASSWORD;
-import static constants.Credentials.USERNAME;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -15,14 +13,17 @@ import static specs.Specifications.defaultRequestSpec;
 import static specs.Specifications.responseSpecificationSpec200;
 
 public class AutorizationTest extends TestBase {
+  private final String userName = System.getProperty("username", "default_user");
+  private final String password = System.getProperty("password", "default_pass");
+
   @Test
   @Owner("@perepelovaAS")
   @Severity(SeverityLevel.BLOCKER)
   @DisplayName("Успешное создание токена аутентификации")
   public void checkAuth() {
     CreateUserModel user = new CreateUserModel();
-    user.setUsername(USERNAME);
-    user.setPassword(PASSWORD);
+    user.setUsername(userName);
+    user.setPassword(password);
 
     CreateUserResponseModel response = step("Создание токена аутентификации", () ->
       given(defaultRequestSpec)
