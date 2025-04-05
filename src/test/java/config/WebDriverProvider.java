@@ -10,8 +10,8 @@ import java.util.Map;
 @Data
 public class WebDriverProvider {
   private static WebConfig config = ConfigFactory.create(WebConfig.class, System.getProperties());
- public final String userName=System.getProperty("jenkins.userName");
- public final String password=System.getProperty("jenkins.password");
+ public final String userName=System.getProperty("userName");
+ public final String password=System.getProperty("password");
   public WebDriverProvider(WebConfig config) {
     this.config = config;
   }
