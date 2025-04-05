@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class CreateUserModel {
-  String username, password;
+  String userName, password;
 }
