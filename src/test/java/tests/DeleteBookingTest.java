@@ -1,6 +1,6 @@
 package tests;
 
-import helpers.BookingHelper;
+import api.BookingHelper;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;

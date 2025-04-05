@@ -1,10 +1,9 @@
 package tests;
 
-import helpers.BookingHelper;
+import api.BookingHelper;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Story;
 import models.response.BookingIdResponseModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

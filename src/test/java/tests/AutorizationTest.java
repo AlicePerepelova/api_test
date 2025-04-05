@@ -13,7 +13,7 @@ import static specs.Specifications.defaultRequestSpec;
 import static specs.Specifications.responseSpecificationSpec200;
 
 public class AutorizationTest extends TestBase {
-  private final String userName = System.getProperty("username", "default_user");
+  private final String userName = System.getProperty("userName", "default_user");
   private final String password = System.getProperty("password", "default_pass");
 
   @Test

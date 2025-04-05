@@ -10,7 +10,7 @@ import java.util.Map;
 public class WebDriverProvider {
   private static WebConfig config = ConfigFactory.create(WebConfig.class, System.getProperties());
 
-  public WebDriverProvider(WebConfig config){
+  public WebDriverProvider(WebConfig config) {
     this.config = config;
   }
 
@@ -19,7 +19,6 @@ public class WebDriverProvider {
     Configuration.browser = config.getBrowser().toString();
     Configuration.browserVersion = config.getBrowserVersion();
     Configuration.pageLoadStrategy = "eager";
-
 
 
     if (config.isRemote()) {
