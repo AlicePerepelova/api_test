@@ -63,8 +63,8 @@ test {
 tasks.withType(Test) {
     useJUnitPlatform()
     systemProperties(System.getProperties())
-    systemProperty "userName", System.getProperty("userName", "default_user")
-    systemProperty "password", System.getProperty("password", "default_pass")
+    systemProperty "userName", System.getProperty("userName")
+    systemProperty "password", System.getProperty("password")
     testLogging {
         lifecycle {
             events "started", "skipped", "failed", "standard_error", "standard_out"
