@@ -1,6 +1,5 @@
 package tests;
 
-import config.WebDriverProvider;
 import io.qameta.allure.*;
 import models.request.CreateUserModel;
 import models.response.CreateUserResponseModel;
@@ -14,7 +13,8 @@ import static specs.Specifications.defaultRequestSpec;
 import static specs.Specifications.responseSpecificationSpec200;
 
 public class AutorizationTest extends TestBase {
-
+  private final String userName = System.getProperty("userName");
+  private final String password = System.getProperty("password");
 
   @Test
   @Owner("@perepelovaAS")
@@ -22,8 +22,8 @@ public class AutorizationTest extends TestBase {
   @DisplayName("Успешное создание токена аутентификации")
   public void checkAuth() {
     CreateUserModel user = new CreateUserModel();
-    user.setUserName(WebDriverProvider.getUserName());
-    user.setPassword(WebDriverProvider.getPassword());
+    user.setUsername(userName);
+    user.setPassword(password);
 
     CreateUserResponseModel response = step("Создание токена аутентификации", () ->
       given(defaultRequestSpec)
