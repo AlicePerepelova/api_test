@@ -18,7 +18,7 @@ public class AuthorizationAPI extends TestBase {
 
   public void generateToken() {
     CreateUserModel user = new CreateUserModel();
-    user.setUsername(config.userName());
+    user.setUserName(config.userName());
     user.setPassword(config.password());
 
     CreateUserResponseModel response =

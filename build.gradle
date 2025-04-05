@@ -58,6 +58,13 @@ dependencies {
 test {
     useJUnitPlatform()
     systemProperties(System.getProperties())
+    def propertiesMap=[
+            "userName":System.getenv("userName"),
+            "password":System.getenv("password")
+    ]
+    propertiesMap.each {key, value->
+        systemProperty "jenkins.$key", value
+    }
 }
 
 tasks.withType(Test) {
