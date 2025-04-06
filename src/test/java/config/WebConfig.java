@@ -19,10 +19,6 @@ public interface WebConfig extends Config {
   @DefaultValue("${latest.browser.version}")
   String getBrowserVersion();
 
-  @Key("browserSize")
-  @DefaultValue("1920x1080")
-  String getBrowserSize();
-
   @Key("baseUrl")
   @DefaultValue("https://restful-booker.herokuapp.com")
   String getBaseUrl();

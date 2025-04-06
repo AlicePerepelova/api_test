@@ -1,6 +1,8 @@
 package constants;
 
+import lombok.Data;
+
+@Data
 public class Credentials {
-  public static final String USERNAME =  System.getProperty("userName");
-  public static final String PASSWORD = System.getProperty("userPassword");
+String userName2, password2;
 }

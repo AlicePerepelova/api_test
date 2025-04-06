@@ -1,6 +1,10 @@
 package tests;
 
-import helpers.BookingHelper;
+import api.BookingHelper;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -13,6 +17,9 @@ public class DeleteBookingTest extends TestBase {
   private String token;
   private Integer bookingId;
   @Test
+  @Story("Позитивный тест")
+  @Owner("@perepelovaAS")
+  @Severity(SeverityLevel.CRITICAL)
   @DisplayName("Проверка удаления бронирования")
   public void checkBookingDelete() {
     step("Авторизуемся, получаем токен", () -> {
@@ -24,7 +31,6 @@ public class DeleteBookingTest extends TestBase {
       this.bookingId = BookingHelper.createBooking();
     });
     step("Удаляем запись о бронировании", () -> {
-
       given(defaultRequestSpec)
         .header("Cookie", "token=" + token)
         .when()

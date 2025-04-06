@@ -1,6 +1,9 @@
 package tests;
 
-import helpers.BookingHelper;
+import api.BookingHelper;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import models.response.BookingIdResponseModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -8,49 +11,42 @@ import org.junit.jupiter.api.Test;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static specs.Specifications.defaultRequestSpec;
 import static specs.Specifications.responseSpecificationSpec200;
 
-public class GetBookingIdTest extends TestBase{
+public class GetBookingIdTest extends TestBase {
   private Integer bookingId;
+
   @Test
-  @DisplayName("Проверка бронирования по id={bookingId}")
+  @Owner("@perepelovaAS")
+  @Severity(SeverityLevel.CRITICAL)
+  @DisplayName("Проверка бронирования по id")
   void checkGetBooking() {
 
-    step("Создание записи о бронировании", ()-> {
-      BookingHelper.createBooking();
+    step("Создание записи о бронировании", () -> {
       this.bookingId = BookingHelper.createBooking();
     });
     BookingIdResponseModel response =
-      step("Получение данных бронирования по ID= {bookingId}", () ->
+      step(String.format("Получение данных бронирования по ID=%d", bookingId), () ->
         given(defaultRequestSpec)
           .when()
-          .get("/booking/"+bookingId)
+          .get("/booking/" + bookingId)
           .then()
           .spec(responseSpecificationSpec200)
           .extract().as(BookingIdResponseModel.class));
 
-//    step("Проверка соответствия имени", () ->
-//    assertThat(response.getFirstname()).isEqualTo(request.getFirstname());
-//    step("Проверка соответствия фамилии", () ->
-//      assertThat(response.getFirstname()).isEqualTo(request.getFirstname());
-//
-//    step("Проверка соответствия цены", () ->
-//      assertThat(response.getFirstname()).isEqualTo(request.getFirstname());
-//
-//    step("Проверка статуса депозита", () ->
-//      assertEquals(false, response.getDepositpaid(), "Статус депозита не совпадает"));
-//
-//    step("Проверка даты заезда", () ->
-//      assertEquals("2017-03-16", response.getBookingdates().getCheckin(), "Дата заезда не совпадает"));
-//
-//    step("Проверка даты выезда", () ->
-//      assertEquals("2019-03-11", response.getBookingdates().getCheckout(), "Дата выезда не совпадает"));
-//
-//    step("Проверка дополнительных пожеланий", () ->
-//      assertNull(response.getAdditionalneeds(), "Дополнительные пожелания не совпадают"));
- }
+    step("Проверка значения поля firstName полученного в ответе. Значение соответствует переданному в запросе" +
+      " на создание бронирования", () ->
+      assertThat(response.getFirstname().equals("defaultName")));
+    step("Проверка значения поля lastName полученного в ответе. Значение соответствует переданному в запросе" +
+      " на создание бронирования", () ->
+      assertThat(response.getFirstname().equals("defaultLastName")));
 
+    step("Проверка дат бронирования. Дата начала соответствуют значению переданному в запросе на создание " +
+      " бронирования", () ->
+      assertThat(response.getBookingdates().getCheckin().equals("2023-01-01")));
+    step("Проверка дат бронирования. Дата окончания соответствуют значению переданному в запросе на создание " +
+      " бронирования", () ->
+      assertThat(response.getBookingdates().getCheckout().equals("2023-04-17")));
+  }
 }

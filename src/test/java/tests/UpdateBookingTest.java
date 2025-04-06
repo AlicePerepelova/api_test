@@ -1,6 +1,10 @@
 package tests;
 
 import data.BookingDataGenerator;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import models.request.UpdateBookingRequestModel;
 import models.response.UpdateBookingResponseModel;
 import org.junit.jupiter.api.DisplayName;
@@ -14,6 +18,8 @@ import static specs.Specifications.responseSpecificationSpec200;
 
 public class UpdateBookingTest extends TestBase{
   @Test
+  @Owner("@perepelovaAS")
+  @Severity(SeverityLevel.CRITICAL)
   @DisplayName("Проверка обновления данных")
   public void checkBookingUpdate2() {
     tests.AuthorizationAPI authorizationAPI = new tests.AuthorizationAPI();
@@ -21,13 +27,13 @@ public class UpdateBookingTest extends TestBase{
     String token = authorizationAPI.getToken();
     UpdateBookingRequestModel request = BookingDataGenerator.generateUpdateBookingRequest();
     UpdateBookingResponseModel response =
-      step("Отправляем запрос на сервер на обновление бронирования по id=1", () ->
+      step("Отправляем запрос на сервер на обновление бронирования по id=2", () ->
         given(defaultRequestSpec)
           .body(request)
           .header("Accept", "application/json")
           .header("Cookie", "token=" + token)
           .when()
-          .put("/booking/" + 3)
+          .put("/booking/" + 2)
           .then()
           .spec(responseSpecificationSpec200)
           .extract().as(UpdateBookingResponseModel.class));
