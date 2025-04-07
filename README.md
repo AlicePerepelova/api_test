@@ -12,9 +12,13 @@
 
 * <a href="#jenkins">Запуск тестов в Jenkins</a>
 
-* <a href="#telegram">Уведомления в Telegram</a>
-
 * <a href="#allure">Allure Report отчеты</a>
+
+* <a href="#allure"> Интеграция с Allure TestOps</a>
+
+* <a href="#jira"> Интеграция с Jira</a>
+
+* <a href="#telegram">Уведомления в Telegram</a>
 
 
 <a id="tools"></a>
@@ -58,16 +62,6 @@ gradle clean test
 <a href="https://jenkins.autotests.cloud/job/alice-lilo-032-diplom_api/"><img src="media/screenshots/sborka.png" alt="Jenkins"/></a>
 </p>
 
-<a id="telegram"></a>
-## <img src="media/logo/Telegram.svg" width="25" height="25"/></a> Уведомления в Telegram
-
-<p >
-
-> С помощью настроенного бота после завершения прогона в Jenkins поступают уведомления в Telegram.
-
-<img title="telegram bot" src="media/screenshots/tele.png">
-</p>
-
 <a id="allure"></a>
 ## <img src="media/logo/Allure.svg" width="25" height="25"/></a> [Allure Report](https://jenkins.autotests.cloud/job/alice-lilo-032-diplom_api/10/allure/) отчеты
 
@@ -84,4 +78,29 @@ gradle clean test
 > В отчете по тестам присутствует развернутая информация по запросам и ответам.
 
 <img title="Allure Tests" src="media/screenshots/testcase.png">
+</p>
+
+<a id="allure"></a>
+## <img width="30" style="vertical-align:middle" title="Allure TestOps" src="media/logo/allureTestOps.svg"> </a> Интеграция с <a target="_blank" href="https://allure.autotests.cloud/project/4693/dashboards"> Allure TestOps </a>
+На *Dashboard* в <code>Allure TestOps</code> видна статистика количества тестов. Новые тесты, а так же результаты прогона приходят по интеграции при каждом запуске сборки.
+<p align="center">
+<img title="Allure Overview" src="media/screenshots/allureTestOps.png">
+</p>
+
+____
+<a id="jira"></a>
+## <img width="30" style="vertical-align:middle" title="Jira" src="media/logo/jira.svg"> </a> Интеграция с <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-1432"> Jira </a>
+Реализована интеграция <code>Allure TestOps</code> с <code>Jira</code>, в задаче отображается, какие тест-кейсы были написаны в рамках задачи и результат их прогона.
+<p align="center">
+<img title="Jira Task" src="media/screenshots/jira.png">
+</p>
+
+<p >
+
+
+<a id="telegram"></a>
+## <img src="media/logo/Telegram.svg" width="25" height="25"/> </a> Уведомления в Telegram
+> С помощью настроенного бота после завершения прогона в Jenkins поступают уведомления в Telegram.
+
+<img title="telegram bot" src="media/screenshots/tele.png">
 </p>
