@@ -89,7 +89,7 @@ gradle clean test
 
 ____
 <a id="jira"></a>
-## <img width="30" style="vertical-align:middle" title="Jira" src="media/logo/jira.svg"> </a> Интеграция с <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-1432"> Jira </a>
+## <img width="30" style="vertical-align:middle" title="Jira" src="media/logo/Jira.svg"> </a> Интеграция с <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-1432"> Jira </a>
 Реализована интеграция <code>Allure TestOps</code> с <code>Jira</code>, в задаче отображается, какие тест-кейсы были написаны в рамках задачи и результат их прогона.
 <p align="center">
 <img title="Jira Task" src="media/screenshots/jira.png">
