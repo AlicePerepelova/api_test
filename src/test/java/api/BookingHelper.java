@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static specs.Specifications.defaultRequestSpec;
 import static specs.Specifications.responseSpecificationSpec200;
 
-public class BookingHelper extends TestBase {
+public class BookingHelper  {
 
   public static Integer createBooking() {
     CreateBookingRequestModel request = generateBookingRequest();
