@@ -23,7 +23,6 @@ public class AutorizationTest extends TestBase {
     CreateUserModel user = new CreateUserModel();
     user.setUsername(userName2);
     user.setPassword(password2);
-    System.out.println("Второй параметр: " + userName2);
 
     CreateUserResponseModel response = step("Создание токена аутентификации", () ->
       given(defaultRequestSpec)
@@ -41,7 +40,6 @@ public class AutorizationTest extends TestBase {
     );
 
     step("Проверка, что токен непустой", () -> {
-      System.out.println("Вывожу токен: " + response.getToken());
       assertThat(response.getToken()).isNotNull();
       assertThat(response.getToken()).isNotEmpty();
     });
