@@ -12,7 +12,7 @@ import static specs.Specifications.defaultRequestSpec;
 import static specs.Specifications.responseSpecificationSpec200;
 
 @Getter
-public class AuthorizationAPI extends TestBase {
+public class AuthorizationAPI  {
   private String token;
   private static final WebConfig config = ConfigFactory.create(WebConfig.class, System.getProperties());
 
