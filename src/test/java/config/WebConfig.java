@@ -30,4 +30,10 @@ public interface WebConfig extends Config {
   @Key("isRemote")
   @DefaultValue("false")
   boolean isRemote();
+
+  @Key("userName2")
+  String getUserName2();
+
+  @Key("password2")
+  String getPassword2();
 }

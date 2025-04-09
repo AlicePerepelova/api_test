@@ -10,12 +10,12 @@ public class UpdateBookingRequestModel {
   private String lastname;
   private Integer totalprice;
   private Boolean depositpaid;
-  private BookingDates bookingdates;
+  private Bookingdates bookingdates;
   private String additionalneeds;
 
   @Builder
   @Data
-  public static class BookingDates {
+  public static class Bookingdates {
     private String checkin;
     private String checkout;
   }

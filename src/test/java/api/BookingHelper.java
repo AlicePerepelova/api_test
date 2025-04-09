@@ -2,7 +2,6 @@ package api;
 
 import models.request.CreateBookingRequestModel;
 import models.response.CreateBookingResponseModel;
-import tests.TestBase;
 
 import static data.BookingDataGenerator.generateBookingRequest;
 import static io.qameta.allure.Allure.step;
@@ -13,7 +12,7 @@ import static specs.Specifications.responseSpecificationSpec200;
 
 public class BookingHelper  {
 
-  public static Integer createBooking() {
+  public static CreateBookingResponseModel createBooking() {
     CreateBookingRequestModel request = generateBookingRequest();
     CreateBookingResponseModel response =
       step("Создание нового бронирования", () ->
@@ -50,6 +49,6 @@ public class BookingHelper  {
       assertEquals(request.getAdditionalneeds(), response.getBooking().getAdditionalneeds(), "Дополнительные требования не совпадают")
     );
 
-    return response.getBookingid();
+    return response;
   }
 }

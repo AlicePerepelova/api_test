@@ -5,6 +5,7 @@ import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
+import models.response.CreateBookingResponseModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +16,6 @@ import static specs.Specifications.responseSpecificationSpec201;
 
 public class DeleteBookingTest extends TestBase {
   private String token;
-  private Integer bookingId;
   @Test
   @Story("Позитивный тест")
   @Owner("@perepelovaAS")
@@ -27,9 +27,8 @@ public class DeleteBookingTest extends TestBase {
       authorizationAPI.generateToken();
       this.token = authorizationAPI.getToken();
     });
-    step("Создаем запись о бронировании", () -> {
-      this.bookingId = BookingHelper.createBooking();
-    });
+    CreateBookingResponseModel booking = step("Создание записи о бронировании", BookingHelper::createBooking);
+    Integer bookingId = booking.getBookingid();
     step("Удаляем запись о бронировании", () -> {
       given(defaultRequestSpec)
         .header("Cookie", "token=" + token)

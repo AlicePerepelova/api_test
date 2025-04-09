@@ -58,8 +58,8 @@ dependencies {
 test {
   useJUnitPlatform()
   def propertiesMap = [
-      "userName2": System.getenv("userName2") ?: "testMe2",
-      "password2": System.getenv("password2") ?: "testMe3"
+      "userName2": System.getenv("userName2") ?: "admin",
+      "password2": System.getenv("password2") ?: "password123"
   ]
   propertiesMap.each { key, value ->
     systemProperty "jenkins.$key", value

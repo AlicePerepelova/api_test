@@ -13,10 +13,10 @@ public class CreateBookingResponseModel {
     private Integer totalprice;
     private Boolean depositpaid;
     private String additionalneeds;
-    private BookingDates bookingdates;
+    private Bookingdates bookingdates;
 
     @Data
-    public static class BookingDates {
+    public static class Bookingdates {
       private String checkin;
       private String checkout;
     }

@@ -30,7 +30,7 @@ public class BookingDataGenerator {
       .totalprice(faker.number().numberBetween(100, 1000))
       .depositpaid(faker.bool().bool())
       .additionalneeds(faker.lorem().sentence())
-      .bookingdates(UpdateBookingRequestModel.BookingDates.builder()
+      .bookingdates(UpdateBookingRequestModel.Bookingdates.builder()
         .checkin("2025-03-25")
         .checkout("2025-03-31")
         .build())
