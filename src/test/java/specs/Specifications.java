@@ -25,4 +25,9 @@ public class Specifications {
     .log(STATUS)
     .log(BODY)
     .build();
+  public static ResponseSpecification responseSpecificationSpec404 = new ResponseSpecBuilder()
+    .expectStatusCode(404)
+    .log(STATUS)
+    .log(BODY)
+    .build();
 }

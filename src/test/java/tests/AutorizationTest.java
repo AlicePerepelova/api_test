@@ -34,14 +34,11 @@ public class AutorizationTest extends TestBase {
         .spec(responseSpecificationSpec200)
         .extract().as(CreateUserResponseModel.class)
     );
-
-    step("Проверка, что ответ с сервера пришел непустой", () ->
-      assertThat(response).isNotNull()
-    );
-
+    step("Проверка, что ответ с сервера пришел непустой", () -> {
+      assertThat(response).isNotNull();
+    });
     step("Проверка, что токен непустой", () -> {
-      assertThat(response.getToken()).isNotNull();
-      assertThat(response.getToken()).isNotEmpty();
+      assertThat(response.getToken()).isNotBlank();
     });
   }
 }

@@ -11,11 +11,11 @@ import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
-import static specs.Specifications.defaultRequestSpec;
-import static specs.Specifications.responseSpecificationSpec201;
+import static specs.Specifications.*;
 
 public class DeleteBookingTest extends TestBase {
   private String token;
+
   @Test
   @Story("Позитивный тест")
   @Owner("@perepelovaAS")
@@ -37,5 +37,11 @@ public class DeleteBookingTest extends TestBase {
         .then()
         .spec(responseSpecificationSpec201);
     });
+    step("Отправить запрос на получение информации по конкретному бронированию", () ->
+      given(defaultRequestSpec)
+        .when()
+        .get("/booking/" + bookingId)
+        .then()
+        .spec(responseSpecificationSpec404));
   }
 }

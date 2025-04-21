@@ -11,12 +11,12 @@ import org.junit.jupiter.api.Test;
 import static data.BookingDataGenerator.generateBookingRequest;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static specs.Specifications.defaultRequestSpec;
 import static specs.Specifications.responseSpecificationSpec200;
 
 
-public class CreateBookingTest extends TestBase{
+public class CreateBookingTest extends TestBase {
   @Test
   @Owner("@perepelovaAS")
   @Severity(SeverityLevel.CRITICAL)
@@ -34,31 +34,48 @@ public class CreateBookingTest extends TestBase{
           .spec(responseSpecificationSpec200)
           .extract().as(CreateBookingResponseModel.class));
     step("Проверка корректности имени гостя", () ->
-      assertEquals(request.getFirstname(), response.getBooking().getFirstname(), "Имя гостя не совпадает")
-    );
+    {
+      assertThat(response.getBooking().getFirstname())
+        .as("Имя гостя не совпадает")
+        .isEqualTo(request.getFirstname());
+    });
 
     step("Проверка корректности фамилии гостя", () ->
-      assertEquals(request.getLastname(), response.getBooking().getLastname(), "Фамилия гостя не совпадает")
-    );
-
+    {
+      assertThat(response.getBooking().getLastname())
+        .as("Фамилия гостя не совпадает")
+        .isEqualTo(request.getLastname());
+    });
     step("Проверка корректности общей цены", () ->
-      assertEquals(request.getTotalprice(), response.getBooking().getTotalprice(), "Общая цена не совпадает")
-    );
+    {
+      assertThat(response.getBooking().getTotalprice())
+        .as("Общая цена не совпадает")
+        .isEqualTo(request.getTotalprice());
+    });
 
     step("Проверка корректности статуса депозита", () ->
-      assertEquals(request.getDepositpaid(), response.getBooking().getDepositpaid(), "Статус депозита не совпадает")
-    );
+    {
+      assertThat(request.getDepositpaid())
+        .as("Статус депозита не совпадает")
+        .isEqualTo(response.getBooking().getDepositpaid());
+    });
 
     step("Проверка корректности даты заезда", () ->
-      assertEquals(request.getBookingdates().getCheckin(), response.getBooking().getBookingdates().getCheckin(), "Дата заезда не совпадает")
-    );
+    {
+      assertThat(request.getBookingdates().getCheckin())
+        .as("Дата заезда не совпадает")
+        .isEqualTo(response.getBooking().getBookingdates().getCheckin());
+    });
+    step("Проверка корректности даты выезда", () -> {
+      assertThat(request.getBookingdates().getCheckout())
+        .as("Дата выезда не совпадает")
+        .isEqualTo(response.getBooking().getBookingdates().getCheckout());
+    });
 
-    step("Проверка корректности даты выезда", () ->
-      assertEquals(request.getBookingdates().getCheckout(), response.getBooking().getBookingdates().getCheckout(), "Дата выезда не совпадает")
-    );
-
-    step("Проверка корректности дополнительных пожеланий", () ->
-      assertEquals(request.getAdditionalneeds(), response.getBooking().getAdditionalneeds(), "Дополнительные пожелания не совпадают")
-    );
+    step("Проверка корректности дополнительных пожеланий", () -> {
+      assertThat(request.getAdditionalneeds())
+        .as("Дополнительные пожелания не совпадают")
+        .isEqualTo(response.getBooking().getAdditionalneeds());
+    });
   }
 }
