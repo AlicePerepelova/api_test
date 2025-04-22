@@ -15,7 +15,6 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static specs.Specifications.defaultRequestSpec;
 import static specs.Specifications.responseSpecificationSpec200;
 
-
 public class CreateBookingTest extends TestBase {
   @Test
   @Owner("@perepelovaAS")
@@ -39,7 +38,6 @@ public class CreateBookingTest extends TestBase {
         .as("Имя гостя не совпадает")
         .isEqualTo(request.getFirstname());
     });
-
     step("Проверка корректности фамилии гостя", () ->
     {
       assertThat(response.getBooking().getLastname())
@@ -52,14 +50,12 @@ public class CreateBookingTest extends TestBase {
         .as("Общая цена не совпадает")
         .isEqualTo(request.getTotalprice());
     });
-
     step("Проверка корректности статуса депозита", () ->
     {
       assertThat(request.getDepositpaid())
         .as("Статус депозита не совпадает")
         .isEqualTo(response.getBooking().getDepositpaid());
     });
-
     step("Проверка корректности даты заезда", () ->
     {
       assertThat(request.getBookingdates().getCheckin())
@@ -71,7 +67,6 @@ public class CreateBookingTest extends TestBase {
         .as("Дата выезда не совпадает")
         .isEqualTo(response.getBooking().getBookingdates().getCheckout());
     });
-
     step("Проверка корректности дополнительных пожеланий", () -> {
       assertThat(request.getAdditionalneeds())
         .as("Дополнительные пожелания не совпадают")

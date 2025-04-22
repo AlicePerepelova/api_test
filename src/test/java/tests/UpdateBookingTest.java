@@ -40,23 +40,18 @@ public class UpdateBookingTest extends TestBase{
     step("Проверка корректности обновления имени", () -> {
       assertThat(response.getFirstname()).isEqualTo(request.getFirstname());
     });
-
     step("Проверка корректности обновления фамилии", () -> {
       assertThat(response.getLastname()).isEqualTo(request.getLastname());
     });
-
     step("Проверка корректности обновления общей цены", () -> {
       assertThat(response.getTotalprice()).isEqualTo(request.getTotalprice());
     });
-
     step("Проверка корректности обновления статуса предоплаты", () -> {
       assertThat(response.getDepositpaid()).isEqualTo(request.getDepositpaid());
     });
-
     step("Проверка корректности обновления дополнительных нужд", () -> {
       assertThat(response.getAdditionalneeds()).isEqualTo(request.getAdditionalneeds());
     });
-
     step("Проверка корректности обновления дат бронирования", () -> {
       assertThat(response.getBookingdates().getCheckin()).isEqualTo(request.getBookingdates().getCheckin());
       assertThat(response.getBookingdates().getCheckout()).isEqualTo(request.getBookingdates().getCheckout());

@@ -40,20 +40,15 @@ public class GetBookingIdTest extends TestBase {
     step("Проверка значения поля lastName полученного в ответе. Значение соответствует переданному в запросе" +
       " на создание бронирования", () ->
       assertThat(response.getLastname()).isEqualTo(booking.getBooking().getLastname()));
-
     step("Проверка общей цены бронирования. Значение соответствует переданному в запросе", () ->
       assertThat(response.getTotalprice()).isEqualTo(booking.getBooking().getTotalprice()));
-
     step("Проверка статуса депозита. Значение соответствует переданному в запросе", () ->
       assertThat(response.getDepositpaid()).isEqualTo(booking.getBooking().getDepositpaid()));
-
     step("Проверка дополнительных пожеланий. Значение соответствует переданному в запросе", () ->
       assertThat(response.getAdditionalneeds()).isEqualTo(booking.getBooking().getAdditionalneeds()));
-
     step("Проверка дат бронирования. Дата начала соответствуют значению переданному в запросе на создание " +
       " бронирования", () ->
       assertThat(response.getBookingdates().getCheckin()).isEqualTo("2025-03-25"));
-
     step("Проверка дат бронирования. Дата окончания соответствуют значению переданному в запросе на создание " +
       " бронирования", () ->
       assertThat(response.getBookingdates().getCheckout()).isEqualTo("2025-03-31"));
